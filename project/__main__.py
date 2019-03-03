@@ -50,27 +50,24 @@ class Weatherh8su:
         self.f.bind("<Leave>", lambda e: self.de_annoy())
         self.settings.grid(column=2, row=0)
         self.todays_frame = tk.Frame(self.main_canvas)
-        self.todays_frame.pack(anchor="w")
-        self.todays_label = tk.Label(self.todays_frame, text="TODAY:",
+        self.todays_label_frame = tk.Frame(self.todays_frame)
+        self.todays_label_frame.pack(side=tk.LEFT)
+        self.todays_content_frame = tk.Frame(self.todays_frame)
+        self.todays_content_frame.pack(side=tk.LEFT)
+        self.todays_frame.pack(side=tk.LEFT)
+        self.todays_label = tk.Label(self.todays_label_frame, text="TODAY:",
                                      font=(None, 30), height=2, anchor="s")
         self.todays_label.pack()
         self.todays_content = tk.Label(
-            self.todays_frame,
-            text="content\nhere",
-            font=(None, 15),
-            anchor="e")
+            self.todays_content_frame, text="content\nhere", font=(None, 15))
         self.todays_content.pack(side=tk.LEFT)
         self.tomorrows_frame = tk.Frame(self.main_canvas)
-        self.tomorrows_frame.pack(anchor="w", pady=30)
+        self.tomorrows_frame.pack()
         self.tomorrows_label = tk.Label(
-            self.tomorrows_frame, text="TOMORROW:",
-            font=(None, 30), height=2, anchor="s")
+            self.tomorrows_frame, text="TOMORROW:", font=(None, 30))
         self.tomorrows_label.pack()
         self.tomorrows_content = tk.Label(
-            self.tomorrows_frame,
-            text="content\nhere",
-            font=(None, 15),
-            anchor="e")
+            self.tomorrows_frame, text="content\nhere", font=(None, 15))
         self.tomorrows_content.pack(side=tk.LEFT)
 
     def annoy(self):
